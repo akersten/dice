@@ -27,8 +27,9 @@ root {
 
 .rolled {
     animation: rolled-animation 1s;
-    animation-fill-mode: forwards;
+    animation-fill-mode: backwards;
     animation-timing-function:ease;
+    font-size: 500%;
 }
 /*
 Custom class to make new things fade in...
@@ -45,6 +46,5 @@ to {background-color: inherit;}
 }
 
 @keyframes rolled-animation {
-    from {font-size: inherit;}
-100% {font-size: 72px;}
+    from {font-size: 100%;}
 }

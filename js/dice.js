@@ -22,6 +22,8 @@ myDataRef.child('actionhistory').on('child_added', function(snapshot) {
     } else if (data.type === 'timestamp') {
         //Add a timestamp to the history
         $('#dyn-history-list').prepend('<li class="list-group-item fadein-history"><span class="badge">' + data.time + '</span><strong>' + data.user + '</strong> inserted divder</li>');
+    } else if (data.type === 'percentroll') {
+        $('#dyn-history-list').prepend('<li class="list-group-item fadein-history"><span class="badge">' + data.time + '</span><strong>' + data.user + '</strong> rolled <strong>' + data.roll + '&percnt;</strong></li>');
     }
 });
 
@@ -69,6 +71,19 @@ function roll(max) {
     }
 
     myDataRef.child('actionhistory').push({type: 'diceroll', time: getTimestamp(), user: getUser(), roll: roll, maxroll: max});
+}
+
+
+function rollPercentage() {
+    //Since it's exclusive top end and inclusive low end, this will do it:
+    var roll = ~~(Math.random() * 100) + 1;
+
+    $('#dyn-roll-list').html('');
+    for (var i = 1; i <= 100; i++) {
+        $('#dyn-roll-list').append('<li' + (i === roll ? ' class="rolled">' : '>') + i + '&percnt;</li> ');
+    }
+
+    myDataRef.child('actionhistory').push({type: 'percentroll', time: getTimestamp(), user: getUser(), roll: roll});
 }
 
 /**
