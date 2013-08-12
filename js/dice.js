@@ -18,12 +18,12 @@ myDataRef.child('actionhistory').on('child_added', function(snapshot) {
     var data = snapshot.val();
     if (data.type === 'diceroll') {
         //Add this roll to the history
-        $('#dyn-history-list').prepend('<li class="list-group-item fadein-history"><span class="badge">' + data.time + '</span><strong>' + data.user + '</strong> rolled <strong>' + data.roll + '</strong> on <small>' + data.maxroll + '</small></li>');
+        $('#dyn-history-list').prepend('<li class="list-group-item fadein-history"><span class="badge">' + clean(data.time) + '</span><strong>' + clean(data.user) + '</strong> rolled <strong>' + clean(data.roll) + '</strong> on <small>' + data.maxroll + '</small></li>');
     } else if (data.type === 'timestamp') {
         //Add a timestamp to the history
-        $('#dyn-history-list').prepend('<li class="list-group-item fadein-history"><span class="badge">' + data.time + '</span><strong>' + data.user + '</strong> inserted divder</li>');
+        $('#dyn-history-list').prepend('<li class="list-group-item fadein-history"><span class="badge">' + clean(data.time) + '</span><strong>' + clean(data.user) + '</strong> inserted divder</li>');
     } else if (data.type === 'percentroll') {
-        $('#dyn-history-list').prepend('<li class="list-group-item fadein-history"><span class="badge">' + data.time + '</span><strong>' + data.user + '</strong> rolled <strong>' + data.roll + '&percnt;</strong></li>');
+        $('#dyn-history-list').prepend('<li class="list-group-item fadein-history"><span class="badge">' + clean(data.time) + '</span><strong>' + clean(data.user) + '</strong> rolled <strong>' + clean(data.roll) + '&percnt;</strong></li>');
     }
 });
 
@@ -57,7 +57,7 @@ function getTimestamp() {
  * @param int max the maximum roll possible
  */
 function roll(max) {
-    if (max < 2) {
+    if (max < 1) {
         alert('That\'s no roll.');
         return;
     }
@@ -97,4 +97,12 @@ function insertTimestamp() {
 
 function clearActionHistory() {
     myDataRef.child('actionhistory').remove();
+}
+
+
+//Input sanitization (could be better)
+
+function clean(str) {
+  
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }

@@ -7,7 +7,6 @@ Author: Alex Kersten
 <!--
 TODO:
 - Make history list shrink or go away after a while
-- Sanitize input so there's no crazy HTML injection etc.
 -->
 
 <!DOCTYPE html>
@@ -50,6 +49,7 @@ TODO:
                     <h2>Act</h2>
                     <a href="#" class="btn btn-default roll-button" onclick="insertTimestamp();">Insert divider</a>
                     <hr />
+                    <a href="#" class="btn btn-default roll-button" onclick="roll(1);">Roll D1</a>
                     <a href="#" class="btn btn-default roll-button" onclick="roll(2);">Roll D2</a>
                     <a href="#" class="btn btn-default roll-button" onclick="roll(4);">Roll D4</a>
                     <a href="#" class="btn btn-default roll-button" onclick="roll(6);">Roll D6</a>
