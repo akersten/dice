@@ -20,14 +20,12 @@ Author: Alex Kersten
         <script src='https://cdn.firebase.com/v0/firebase.js'></script>
     </head>
     <body>
-        <script src="js/dice.js"></script>
-
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="input-group">
                         <span class="input-group-addon">Name</span>
-                        <input type="text" class="form-control" placeholder="Type your name, be honest tho">
+                        <input type="text" class="form-control" id="dyn-name-field" placeholder="Type your name, be honest tho">
                     </div>
                 </div>
             </div>
@@ -36,19 +34,7 @@ Author: Alex Kersten
                 <!-- Roll area -->
                 <div class="col-lg-4">
                     <h2>Roll</h2>
-                    <ul class="roll-list">
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                        <li>4</li>
-                        <li>5</li>
-                        <li>6</li>
-                        <li class="rolled">7</li>
-                        <li>8</li>
-                        <li>9</li>
-                        <li>10</li>
-                        <li>11</li>
-                        <li>12</li>
+                    <ul class="roll-list" id="dyn-roll-list">
                     </ul>                   
                 </div>
 
@@ -63,47 +49,21 @@ Author: Alex Kersten
                     <a href="#" class="btn btn-default roll-button" onclick="roll(10);">Roll D10</a>
                     <a href="#" class="btn btn-default roll-button" onclick="roll(12);">Roll D12</a>
                     <a href="#" class="btn btn-default roll-button" onclick="roll(20);">Roll D20</a>
-
+                    <!--  
+                    <hr />
+                    <a href="#" class="btn btn-warning roll-button" onclick="clearActionHistory();">Clear</a>
+                    -->
                 </div>
 
                 <!-- History area -->
-                <div class="col-lg-3">
+                <div class="col-lg-5">
                     <h2>History</h2>
                     <ul class="list-group" id="dyn-history-list">
-                        
-                        
-                        <!--
-                        <li class="list-group-item fadein-history">
-                            <span class="badge">4:20pm</span>
-                            <strong>kylewoo</strong>
-                            rolled
-                            <strong>1</strong>
-                            on
-                            <small>20</small>
-                        </li>
-
-                        <li class="list-group-item fadein-history">
-                            <span class="badge">4:19pm</span>
-                            <strong>kylewoo</strong>
-                            rolled
-                            <strong>1</strong>
-                            on
-                            <small>20</small>
-                        </li>
-
-                        <li class="list-group-item fadein-history">
-                            <span class="badge">4:18pm</span>
-                            <strong>kylewoo</strong>
-                            rolled
-                            <strong>1</strong>
-                            on
-                            <small>20</small>
-                        </li>-->
-
                     </ul>
                 </div>
 
                 <!-- Users area -->
+                <!--
                 <div class="col-lg-2">
                     <h2>Users</h2>
                     <ul class="list-group">
@@ -111,6 +71,7 @@ Author: Alex Kersten
                         <li class="list-group-item fadein-history">kylewoo 2</li>
                     </ul>
                 </div>
+                -->
 
             </div>
         </div>
@@ -118,5 +79,7 @@ Author: Alex Kersten
         <script src="js/jquery-2.0.3.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
 
+        <!-- Dice script after jQuery has loaded -->
+        <script src="js/dice.js"></script>
     </body>
 </html>
