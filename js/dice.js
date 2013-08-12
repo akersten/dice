@@ -21,7 +21,7 @@ myDataRef.child('actionhistory').on('child_added', function(snapshot) {
         $('#dyn-history-list').prepend('<li class="list-group-item fadein-history"><span class="badge">' + clean(data.time) + '</span><strong>' + clean(data.user) + '</strong> rolled <strong>' + clean(data.roll) + '</strong> on <small>' + data.maxroll + '</small></li>');
     } else if (data.type === 'timestamp') {
         //Add a timestamp to the history
-        $('#dyn-history-list').prepend('<li class="list-group-item fadein-history"><span class="badge">' + clean(data.time) + '</span><strong>' + clean(data.user) + '</strong> inserted divder</li>');
+        $('#dyn-history-list').prepend('<li class="list-group-item fadein-history roll-divider"><span class="badge">' + clean(data.time) + '</span><strong>' + clean(data.user) + '</strong>\'s divider</li>');
     } else if (data.type === 'percentroll') {
         $('#dyn-history-list').prepend('<li class="list-group-item fadein-history"><span class="badge">' + clean(data.time) + '</span><strong>' + clean(data.user) + '</strong> rolled <strong>' + clean(data.roll) + '&percnt;</strong></li>');
     }
@@ -103,6 +103,6 @@ function clearActionHistory() {
 //Input sanitization (could be better)
 
 function clean(str) {
-  
+
     return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }

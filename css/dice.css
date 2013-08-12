@@ -25,6 +25,12 @@ root {
     display: inline;
 }
 
+.roll-divider {
+    border: none !important;
+    background-color: rgb(180, 180, 180) !important;
+    margin-top: 6px;
+}
+
 .rolled {
     animation: rolled-animation 1s;
     animation-fill-mode: backwards;
