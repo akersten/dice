@@ -1,0 +1,50 @@
+/* 
+    Document   : dice
+    Created on : Aug 11, 2013, 7:40:01 PM
+    Author     : Alex
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+.roll-button {
+    display: block !important;
+    margin-bottom: 3px !important;
+}
+
+
+.roll-list {
+    padding: 0px;
+}
+
+.roll-list li {
+    list-style:none;
+    display: inline;
+}
+
+.rolled {
+    animation: rolled-animation 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function:ease;
+}
+/*
+Custom class to make new things fade in...
+*/
+.fadein-history 
+{
+    animation: fadein-animation 2s;
+
+}
+
+@keyframes fadein-animation {
+    from {background-color: rgb(255, 214, 119);}
+to {background-color: inherit;}
+}
+
+@keyframes rolled-animation {
+    from {font-size: inherit;}
+100% {font-size: 72px;}
+}
